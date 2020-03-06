@@ -1,4 +1,4 @@
-make_cluster<-function(shrt, thresh, bynum, namvec, pal) { # input is an all vs. all BLAST table 
+make_cluster <- function(shrt, thresh, bynum, namvec, pal) { # input is an all vs. all BLAST table 
 
   # First remove all comparisons between identical proteins (closed loop nodes)
   noprs <- shrt[!shrt$prot1==shrt$prot2,]
