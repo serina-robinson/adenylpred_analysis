@@ -38,7 +38,7 @@ rf_full_ss <- caret::train(
   verbose = TRUE,
   importance = "permutation")
 
-# Now train on the entire dataset
+# Now train on the entire dataset for web app model
 rf_full_ss_noxval <- ranger(y_train ~., data = form_train, num.trees = 1000, splitrule = "gini",
                             mtry = as.integer(sqrt(ncol(x_train))), min.node.size = 1,
                             importance = "permutation", probability = TRUE)
