@@ -46,15 +46,17 @@ query_fils <- sapply(1:length(sqs), function(x) {tempfile(pattern = "", fileext 
 sapply(1:length(sqs), function(x) {writeXStringSet(sqs[x], query_fils[x])})
 extract_34_list <- lapply(1:length(sqs), function(x) { extract_34_aa_loop(query_fils[x]) })
 extract_34_df_NRPS <- data.frame(matrix(unlist(extract_34_list), nrow = length(extract_34_list), byrow=T), stringsAsFactors=FALSE)
+colnames(extract_34_df_NRPS)
+head(extract_34_df)
 colnames(extract_34_df_NRPS)[1:510] <- as.character(fread("data/feature_names.txt", data.table = F)[,1])
 rownames(extract_34_df_NRPS) <- names(sqs)
-write.csv(extract_34_df_NRPS, "data/150_NRPS_train_loop_extracted.csv", quote = F, row.names = T)
+write.csv(extract_34_df_NRPS, "data/150_NRPS_train_loop_extracted_new.csv", quote = F, row.names = T)
 
 # Combine the NRPS and the Uniprot
 comb_df <- read_csv("data/655_uniprot_train_loop_extracted.csv") %>%
   column_to_rownames("X1")
 
-comb_df2 <- read_csv("data/150_NRPS_train_loop_extracted.csv") %>%
+comb_df2 <- read_csv("data/150_NRPS_train_loop_extracted_new.csv") %>%
   column_to_rownames("X1")
 
 total_dat <- data.frame(rbind(comb_df, comb_df2), stringsAsFactors = F)

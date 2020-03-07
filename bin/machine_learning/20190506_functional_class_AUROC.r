@@ -1,5 +1,6 @@
 # Install packages
-pacman::p_load("caret", "data.table", "RColorBrewer", "ranger", "multiROC")
+pacman::p_load("caret", "data.table", "RColorBrewer", "tidyverse",
+               "rsample", "ranger", "multiROC", "stringr")
 
 # Set working directory
 setwd("~/Documents/Wageningen_UR/github/adenylpred_analysis/")
@@ -12,14 +13,10 @@ rawdat <- read_csv("data/703_training_sqs_with_loop_extracted.csv")
 table(duplicated(rawdat[,2:ncol(rawdat)])) # check no duplicates
 colnames(rawdat)[1] <- "nms"
 rawdat$clf <- word(rawdat$nms, 2, sep = "_")
-rawdat$nms
-table(rawdat$clf)
 
 # Remove the holdout test predictions
 dat <- rawdat[!grepl(paste0(c("HOLDOUT", "OTHER", "CAR", "amino.acid", "reject"), collapse = "|"), rawdat$clf),] # 658 observations
 table(dat$clf)
-# SMOTE oversampling
-# Stratified cross-validation
 
 # Split into test and train
 dat_split <- initial_split(dat, prop = 3/4, strata = "clf")

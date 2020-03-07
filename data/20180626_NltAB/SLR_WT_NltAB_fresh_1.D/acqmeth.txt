@@ -1,0 +1,204 @@
+                             INSTRUMENT CONTROL PARAMETERS:    GCMS
+                             --------------------------------------
+
+   C:\MSDCHEM\1\METHODS\OLE_80_1UL_GENERIC.M
+      Wed Jun 27 11:06:12 2018
+
+Control Information
+------- -----------
+
+Sample Inlet      :  GC
+Injection Source  :  GC ALS
+Mass Spectrometer :  Enabled
+
+
+ No Sample Prep method has been assigned to this method.
+
+Oven
+Equilibration Time                           0.25 min
+Max Temperature                              450 degrees C
+Slow Fan                                     Disabled
+Oven Program                                 On
+    80 蚓 for 2 min
+    then 12 蚓/min to 320 蚓 for 3 min
+Run Time                                     25 min
+
+
+
+
+Front Injector
+Syringe Size                                 10 無
+Injection Volume                             1 無
+Solvent A Washes (PreInj)                    2
+Solvent A Washes (PostInj)                   2
+Solvent A Volume                             8 無
+Solvent B Washes (PreInj)                    2
+Solvent B Washes (PostInj)                   2
+Solvent B Volume                             8 無
+Sample Washes                                0
+Sample Wash Volume                           8 無
+Sample Pumps                                 4
+Dwell Time (PreInj)                          0 min
+Dwell Time (PostInj)                         0 min
+Solvent Wash Draw Speed                      300 無/min
+Solvent Wash Dispense Speed                  6000 無/min
+Sample Wash Draw Speed                       300 無/min
+Sample Wash Dispense Speed                   6000 無/min
+Injection Dispense Speed                     6000 無/min
+Viscosity Delay                              0 sec
+Sample Depth                                 Disabled
+Injection Type                               Standard
+L1 Airgap                                    0.2 無
+
+
+Sample Overlap
+Sample overlap is not enabled
+
+
+
+Front SS Inlet He
+Mode                                         Splitless
+Heater                                       On    250 蚓
+Pressure                                     On    23.824 psi
+Total Flow                                   On    24.75 mL/min
+Septum Purge Flow                            On    3 mL/min
+Gas Saver                                    On    20 mL/min After 3 min
+Purge Flow to Split Vent                     20 mL/min at 1 min
+
+
+Thermal Aux 2 {MSD Transfer Line}
+Heater                                       On
+Temperature Program                          On
+    320 蚓 for 0 min
+Run Time                                     25 min
+
+
+Column #1
+
+450 蚓: 30 m x 250 痠 x 0.25 痠
+In: Front SS Inlet He
+Out: Aux EPC 3
+
+(Initial)                                    80 蚓
+Pressure                                     23.824 psi
+Flow                                         2.0069 mL/min
+Average Velocity                             40.417 cm/sec
+Holdup Time                                  1.2371 min
+Pressure Program                             On
+    23.824 psi for 0 min
+Run Time                                     25 min
+
+
+
+
+
+Front Detector TCD
+Heater                                       Off
+Reference Flow                               Off
+Makeup Flow                                  Off
+Const Col + Makeup                           Off
+Negative Polarity                            Off
+Filament                                     Off
+
+
+
+Back Detector FID
+Heater                                       On    250 蚓
+H2 Flow                                      On    30 mL/min
+Air Flow                                     On    400 mL/min
+Makeup Flow                                  On    25 mL/min
+Const Col + Makeup                           Off
+Flame                                        On
+Electrometer                                 On
+
+Aux EPC 1 He
+Pressure Program                             Off
+    10 psi for 0 min
+Run Time                                     25 min
+
+Aux EPC 2 He
+Pressure Program                             Off
+    10 psi for 0 min
+Run Time                                     25 min
+
+Aux EPC 3 He
+Pressure Program                             On
+    3.2 psi for 0 min
+Run Time                                     25 min
+
+
+Signals
+ Back Signal                                 Save On
+                                             20 Hz
+ Front Signal                                Save Off
+                                             20 Hz
+ Test Plot                                   Save Off
+                                             50 Hz
+ Test Plot                                   Save Off
+                                             50 Hz
+
+                                MS ACQUISITION PARAMETERS
+
+
+General Information
+------- -----------
+
+Tune File                : atune.u
+Acquistion Mode          : Scan
+
+
+MS Information
+-- -----------
+
+Solvent Delay            : 4.00 min
+
+EMV Mode                 : Relative
+Relative Voltage         : 0
+Resulting EM Voltage     : 1376
+
+[Scan Parameters]
+
+Low Mass                 : 50.0
+High Mass                : 550.0
+Threshold                : 150
+Sample #                 : 2       A/D Samples    4
+Plot 2 low mass          : 50.0
+Plot 2 high mass         : 550.0
+
+[MSZones]
+
+MS Source                : 230 C   maximum 250 C
+MS Quad                  : 150 C   maximum 200 C
+
+
+                             END OF MS ACQUISITION PARAMETERS
+
+
+                              TUNE PARAMETERS for SN: US10010001
+                        -----------------------------
+
+ Trace Ion Detection is OFF.
+
+ EMISSION    :      34.610
+ ENERGY      :      69.922
+ REPELLER    :      25.600
+ IONFOCUS    :      90.157
+ ENTRANCE_LE :      32.000
+ EMVOLTS     :    1376.471
+                               Actual EMV  :    1376.47
+                               GAIN FACTOR :       0.68
+ AMUGAIN     :    3275.000
+ AMUOFFSET   :     118.063
+ FILAMENT    :       1.000
+ DCPOLARITY  :       1.000
+ ENTLENSOFFS :      17.569
+ MASSGAIN    :     174.000   
+ MASSOFFSET  :     -42.000   
+
+                           END OF TUNE PARAMETERS
+                      ------------------------------------
+
+
+
+                              END OF INSTRUMENT CONTROL PARAMETERS
+                              ------------------------------------
