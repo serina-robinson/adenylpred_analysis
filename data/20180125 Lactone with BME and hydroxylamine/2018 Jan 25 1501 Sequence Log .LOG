@@ -1,0 +1,40 @@
+    Starting sequence Thu Jan 25 15:01:41 2018
+     
+  Instrument Name: GCMS
+    Sequence File: C:\msdchem\1\sequence\20180124.s
+          Comment:  
+         Operator:  
+        Data Path: C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\
+      Method Path: C:\MSDCHEM\1\METHODS\
+
+    Line Type        Vial  DataFile  Method    Sample Name
+    -----------------------------------------------------------------------
+      1) Sample       150  MTBE 2nd Purge
+          Datafile         MTBE 2nd Purge
+          Method           COLUMN_PURGE_300INLET_320C_6MIN
+      2) Sample       150  MTBE Blank
+          Datafile         MTBE Blank
+          Method           GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300
+      3) Sample        51  A 20min
+          Datafile         A 20min
+          Method           GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300
+      4) Sample        52  B 20min
+          Datafile         B 20min
+          Method           GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300
+      5) Sample        53  C 20min
+          Datafile         C 20min
+          Method           GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300
+      6) Sample        54  D 20min
+          Datafile         D 20min
+          Method           GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300
+      7) Sample        55  E 20min
+          Datafile         E 20min
+          Method           GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300
+      8) Sample        56  F 20min
+          Datafile         F 20min
+          Method           GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300
+     
+    Sequence completed Thu Jan 25 17:38:51 2018
+     
+      C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\2018 Jan 25 1501 Qu
+      C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\2018 Jan 25 1501 Se

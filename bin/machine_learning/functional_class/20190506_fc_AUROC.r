@@ -52,24 +52,12 @@ for(i in 1:10) {
 
 # Calculate the overall test statistics
 ind <- 10
-
-# xx <- list()
-# for (i in 1:length(rf_cm)) {
-#   xx[[i]] <- rf_cm[[i]]$overall[1]
-# }
-# mean(unlist(xx))
-# sd(unlist(xx))
-# 
-# ind <- which.max(unlist(xx))
-
-# rf_pred <- data.frame(rf_pred[[4]]$predictions)
 rf_df <- rf_pred[[ind]]$predictions
 colnames(rf_df) <- paste0(colnames(rf_df), "_pred_RF")
 head(rf_df)
 
 true_label <- dummies::dummy(dat_test$clf, sep = ".")
 true_label <- data.frame(true_label)
-# colnames(true_label) <- gsub(".*?\\.", "", colnames(true_label))
 colnames(true_label) <- paste0(colnames(true_label), "_true")
 head(true_label)
 true_label <- data.frame(true_label)
@@ -86,22 +74,13 @@ plot_roc_df <- plot_roc_data(roc_res) %>%
 
 table(plot_roc_df$Group)
 plot_pr_df <- plot_pr_data(pr_res)
-
-pal1 <- colorRampPalette(colors=brewer.pal(8, "Set1"))(8)
-pal1[pal1 == "#377EB8"] <- "#92D050"
-# pal1[7] <- pal1[8]
-# pal1[8] <- "#A65628"
-# pal1[pal1 == "#A65628"] <- "gray68"
-# pal1[pal1 == "#F781BF"] <- "#A65628"
-pal1[pal1 == "#4DAF4A"] <- "#377EB8"
-pal1[pal1 == "#FFFF33"] <- "goldenrod"
-pal2 <- c(pal1, "blue1", "gray68", "darkorchid1", "navy", #"black", 
+pal2 <- c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3", "#FF7F00",
+          "#FFFF33", "#A65628",
+          "#F781BF", "blue1", "gray68", "darkorchid1", "navy", 
           "plum1",
           "deepskyblue", "gold", 
           "deeppink2", "lightslateblue",
           "lightblue2", "darkseagreen1")
-palette(pal2)
-length(pal2)
 
 pdf("output/figS2.pdf", width = 4, height = 4)
 ggplot(plot_roc_df, aes(x = 1-Specificity, y=Sensitivity)) +
@@ -115,7 +94,7 @@ ggplot(plot_roc_df, aes(x = 1-Specificity, y=Sensitivity)) +
         legend.title = NULL)
 dev.off()
 
-unlist(roc_res$AUC)
+
 roc_ci_res_micro <- roc_ci(final_df, conf= 0.95, type='basic', R = 100, index = 17)
 roc_ci_res_micro
 

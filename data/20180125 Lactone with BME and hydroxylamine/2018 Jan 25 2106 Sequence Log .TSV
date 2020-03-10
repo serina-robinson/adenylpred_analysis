@@ -1,0 +1,10 @@
+Starting sequence Thu Jan 25 21:06:01 2018
+_seqline	_dataname$	_alsbottle	_alsbottle2	_methpath$	_methfile$	_datapath$	_datafile$	_runtype$	_levelid$	_multiplr	_miscinfo$	_sampamt	_injvol	_injvol2	_expbarcode$	_expbarcode2$	_pretreatpath$	_pretreatfile$	_traypicked	
+1	MTBE 2nd Purge b	150	0	C:\MSDCHEM\1\METHODS\	COLUMN_PURGE_300INLET_320C_6MIN.M	C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\	MTBE 3nd Purge b.D	Sample		1		0	0	0			C:\msdchem\1\PreTreat\	Default.pt	<method default>	
+2	MTBE Blank b	150	0	C:\MSDCHEM\1\METHODS\	GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300.M	C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\	MTBE Blank b.D	Sample		1		0	0	0			C:\msdchem\1\PreTreat\	Default.pt	<method default>	
+3	A 7hr	51	0	C:\MSDCHEM\1\METHODS\	GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300.M	C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\	A 8hr.D	Sample		1		0	0	0			C:\msdchem\1\PreTreat\	Default.pt	<method default>	
+4	B 7hr	52	0	C:\MSDCHEM\1\METHODS\	GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300.M	C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\	B 8hr.D	Sample		1		0	0	0			C:\msdchem\1\PreTreat\	Default.pt	<method default>	
+5	C 7hr	53	0	C:\MSDCHEM\1\METHODS\	GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300.M	C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\	C 8hr.D	Sample		1		0	0	0			C:\msdchem\1\PreTreat\	Default.pt	<method default>	
+6	D 7hr	54	0	C:\MSDCHEM\1\METHODS\	GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300.M	C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\	D 8hr.D	Sample		1		0	0	0			C:\msdchem\1\PreTreat\	Default.pt	<method default>	
+7	E 7hr	55	0	C:\MSDCHEM\1\METHODS\	GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300.M	C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\	E 8hr.D	Sample		1		0	0	0			C:\msdchem\1\PreTreat\	Default.pt	<method default>	
+8	F 7hr	56	0	C:\MSDCHEM\1\METHODS\	GENERIC_OLE_C20_DETECT_18MIN_1UL_120-300.M	C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\	F 8hr.D	Sample		1		0	0	0			C:\msdchem\1\PreTreat\	Default.pt	<method default>	

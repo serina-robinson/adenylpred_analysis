@@ -1,0 +1,19 @@
+    Starting sequence Thu Jan 25 14:21:35 2018
+     
+  Instrument Name: GCMS
+    Sequence File: C:\msdchem\1\sequence\20180124.s
+          Comment:  
+         Operator:  
+        Data Path: C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\
+      Method Path: C:\MSDCHEM\1\METHODS\
+
+    Line Type        Vial  DataFile  Method    Sample Name
+    -----------------------------------------------------------------------
+
+Thu Jan 25 14:59:17 2018
+    Fatal sequence error detected.
+    GC Prerun Aborted
+     
+     
+      C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\2018 Jan 25 1421 Qu
+      C:\MSDCHEM\1\DATA\JAMES C\20180125 LACTONE WITH BME AND HYDROXYLAMINE\2018 Jan 25 1421 Se

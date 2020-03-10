@@ -1,0 +1,233 @@
+                             INSTRUMENT CONTROL PARAMETERS:    GCMS
+                             --------------------------------------
+
+   C:\MSDCHEM\1\METHODS\320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT.M
+      Thu Sep 28 15:29:24 2017
+
+Control Information
+------- -----------
+
+Sample Inlet      :  GC
+Injection Source  :  GC ALS
+Mass Spectrometer :  Enabled
+
+
+ No Sample Prep method has been assigned to this method.
+
+Oven
+Equilibration Time                           0.25 min
+Max Temperature                              450 degrees C
+Slow Fan                                     Disabled
+Oven Program                                 On
+    110 蚓 for 0 min
+    then 12 蚓/min to 320 蚓 for 3 min
+Run Time                                     20.5 min
+
+
+
+
+Front Injector
+Syringe Size                                 10 無
+Injection Volume                             5 無
+Solvent A Washes (PreInj)                    2
+Solvent A Washes (PostInj)                   2
+Solvent A Volume                             8 無
+Solvent B Washes (PreInj)                    2
+Solvent B Washes (PostInj)                   2
+Solvent B Volume                             8 無
+Sample Washes                                0
+Sample Wash Volume                           8 無
+Sample Pumps                                 4
+Dwell Time (PreInj)                          0 min
+Dwell Time (PostInj)                         0 min
+Solvent Wash Draw Speed                      300 無/min
+Solvent Wash Dispense Speed                  6000 無/min
+Sample Wash Draw Speed                       300 無/min
+Sample Wash Dispense Speed                   6000 無/min
+Injection Dispense Speed                     6000 無/min
+Viscosity Delay                              0 sec
+Sample Depth                                 Disabled
+Injection Type                               Standard
+L1 Airgap                                    0.2 無
+
+
+Sample Overlap
+Sample overlap is not enabled
+
+
+
+Front SS Inlet He
+Mode                                         Splitless
+Heater                                       On    250 蚓
+Pressure                                     On    23.162 psi
+Total Flow                                   On    24.75 mL/min
+Septum Purge Flow                            On    3 mL/min
+Gas Saver                                    On    20 mL/min After 3 min
+Purge Flow to Split Vent                     20 mL/min at 1 min
+
+
+Thermal Aux 2 {MSD Transfer Line}
+Heater                                       On
+Temperature Program                          On
+    320 蚓 for 0 min
+Run Time                                     20.5 min
+
+
+Column #1
+
+450 蚓: 30 m x 250 痠 x 0.25 痠
+In: Front SS Inlet He
+Out: Aux EPC 3
+
+(Initial)                                    110 蚓
+Pressure                                     23.824 psi
+Flow                                         1.75 mL/min
+Average Velocity                             38.237 cm/sec
+Holdup Time                                  1.3076 min
+Flow Program                                 Off
+    1.75 mL/min for 0 min
+Run Time                                     20.5 min
+
+
+Column #2
+
+450 蚓: 1 m x 100 痠 x 0 痠
+In: Aux EPC 3 He
+Out: Vacuum
+
+(Initial)                                    110 蚓
+Pressure                                     3.2 psi
+Flow                                         0.37291 mL/min
+Average Velocity                             125.27 cm/sec
+Holdup Time                                  0.013305 min
+Pressure Program                             On
+    3.2 psi for 0 min
+Run Time                                     20.5 min
+
+
+Column #3
+
+450 蚓: 1 m x 100 痠 x 0 痠
+In: Aux EPC 3 He
+Out: Back Detector FID
+
+(Initial)                                    110 蚓
+Pressure                                     13.363 psi
+Flow                                         0.66523 mL/min
+Average Velocity                             120.78 cm/sec
+Holdup Time                                  0.013799 min
+Flow Program                                 Off
+    0.66523 mL/min for 0 min
+Run Time                                     20.5 min
+
+
+
+
+
+Front Detector TCD
+Heater                                       Off
+Reference Flow                               Off
+Makeup Flow                                  Off
+Const Col + Makeup                           Off
+Negative Polarity                            Off
+Filament                                     Off
+
+
+
+Back Detector FID
+Heater                                       On    250 蚓
+H2 Flow                                      On    30 mL/min
+Air Flow                                     On    400 mL/min
+Makeup Flow                                  On    25 mL/min
+Const Col + Makeup                           Off
+Flame                                        On
+Electrometer                                 On
+
+Aux EPC 1 He
+Pressure Program                             Off
+    10 psi for 0 min
+Run Time                                     20.5 min
+
+Aux EPC 2 He
+Pressure Program                             Off
+    10 psi for 0 min
+Run Time                                     20.5 min
+
+Aux EPC 3 He: Supplies Column 2
+
+
+Signals
+ Back Signal                                 Save On
+                                             20 Hz
+ Front Signal                                Save Off
+                                             20 Hz
+ Test Plot                                   Save Off
+                                             50 Hz
+ Test Plot                                   Save Off
+                                             50 Hz
+
+                                MS ACQUISITION PARAMETERS
+
+
+General Information
+------- -----------
+
+Tune File                : atune.u
+Acquistion Mode          : Scan
+
+
+MS Information
+-- -----------
+
+Solvent Delay            : 5.00 min
+
+EMV Mode                 : Gain Factor
+Gain Factor              : 1.00
+Resulting EM Voltage     : 1271
+
+[Scan Parameters]
+
+Low Mass                 : 50.0
+High Mass                : 550.0
+Threshold                : 150
+Sample #                 : 2       A/D Samples    4
+Plot 2 low mass          : 50.0
+Plot 2 high mass         : 550.0
+
+[MSZones]
+
+MS Source                : 230 C   maximum 250 C
+MS Quad                  : 150 C   maximum 200 C
+
+
+                             END OF MS ACQUISITION PARAMETERS
+
+
+                              TUNE PARAMETERS for SN: US10010001
+                        -----------------------------
+
+ Trace Ion Detection is OFF.
+
+ EMISSION    :      34.610
+ ENERGY      :      69.922
+ REPELLER    :      34.814
+ IONFOCUS    :      90.157
+ ENTRANCE_LE :      19.000
+ EMVOLTS     :    1317.647
+                               Actual EMV  :    1270.59
+                               GAIN FACTOR :       0.98
+ AMUGAIN     :    3272.000
+ AMUOFFSET   :     120.125
+ FILAMENT    :       2.000
+ DCPOLARITY  :       1.000
+ ENTLENSOFFS :      19.075
+ MASSGAIN    :     182.000   
+ MASSOFFSET  :     -44.000   
+
+                           END OF TUNE PARAMETERS
+                      ------------------------------------
+
+
+
+                              END OF INSTRUMENT CONTROL PARAMETERS
+                              ------------------------------------

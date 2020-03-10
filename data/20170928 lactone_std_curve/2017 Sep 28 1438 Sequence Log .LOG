@@ -1,0 +1,55 @@
+    Starting sequence Thu Sep 28 14:38:56 2017
+     
+  Instrument Name: GCMS
+    Sequence File: C:\msdchem\1\sequence\Becky2.s
+          Comment:  
+         Operator:  
+        Data Path: C:\MSDCHEM\1\DATA\SERINA\20170928 LACTONE_STD_CURVE\
+      Method Path: C:\MSDCHEM\1\METHODS\
+
+    Line Type        Vial  DataFile  Method    Sample Name
+    -----------------------------------------------------------------------
+      1) Blank        150  EtAc-2
+          Datafile         1
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+      2) Blank        150  EtAc-3
+          Datafile         2
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+      3) Blank        150  EtAc-1
+          Datafile         3
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+      4) Sample         1  .001uM-1
+          Datafile         4
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+      5) Sample         2  .001uM-2
+          Datafile         5
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+      6) Sample         3  .01uM-1
+          Datafile         6
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+      7) Sample         4  .01uM-2
+          Datafile         7
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+      8) Sample         5  .1uM-1
+          Datafile         8
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+      9) Sample         6  .1uM-2
+          Datafile         9
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+     10) Sample         7  1uM-1
+          Datafile         10
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+     11) Sample         8  1uM-2
+          Datafile         11
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+     12) Sample         9  10uM-1
+          Datafile         12
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+     13) Sample        10  10uM-2
+          Datafile         13
+          Method           320 ALKENE SPLITLESS EPC 3POINT2 5UL_SHORT
+     
+    Sequence completed Thu Sep 28 19:44:19 2017
+     
+      C:\MSDCHEM\1\DATA\SERINA\20170928 LACTONE_STD_CURVE\2017 Sep 28 1438 Quality Log.LOG
+      C:\MSDCHEM\1\DATA\SERINA\20170928 LACTONE_STD_CURVE\2017 Sep 28 1438 Sequence Log .LOG
