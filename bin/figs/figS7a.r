@@ -59,7 +59,7 @@ pl2 <- ggplot(data = df2,  aes(x = V1, y = V2, colour = grp, group = ID)) +
   theme_pubr()
 pl2
 
-pdf("output/figS7A_blactone.pdf", width = 3.5, height = 4)
+pdf("output/figS7a_blactone.pdf", width = 3.5, height = 4)
 pl2
 dev.off()
 
@@ -99,6 +99,6 @@ pl2 <- ggplot(data = df2,  aes(x = V1, y = V2, colour = grp, group = ID)) +
 pl2
 dev.off()
 
-pdf("output/figS7A_bhydroxy_acid.pdf", width = 3.5, height = 4)
+pdf("output/figS7a_bhydroxy_acid.pdf", width = 3.5, height = 4)
 pl2 
 dev.off()

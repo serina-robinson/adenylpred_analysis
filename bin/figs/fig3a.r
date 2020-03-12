@@ -20,7 +20,7 @@ allvall <- fread("data/3319_comb_cdhit40_all_v_all.tsv", stringsAsFactors = F, d
 clusassn <- read_csv("data/2344_antismashv2_full_rf_prediction_results.csv") 
 colnames(clusassn)[1] <- "V1"
 
-# Join by the name
+# Join with predictions by the name
 join_assnV1 <- allvall %>%
   left_join(., clusassn, by = "V1") %>%
   mutate(prob0.6V1 = coalesce(prob0.6, V1)) %>%
@@ -31,7 +31,6 @@ join_assnV1 <- allvall %>%
   mutate(prob0.1V1 = coalesce(prob0.1, V1))
 
 colnames(clusassn)[1] <- "V2"
-
 join_assnV2 <- allvall %>%
   left_join(., clusassn, by = "V2") %>%
   mutate(prob0.6V2 = coalesce(prob0.6, V2)) %>%
@@ -43,10 +42,9 @@ join_assnV2 <- allvall %>%
 
 
 # Color by functional class
-clf <- c("ARYL", "BLS", "FAAL", "LACS", "LUCIFERASE", "MACS", "NRPS", "SACS", "VLACSBILE")
+namvec <- c("ARYL", "BLS", "FAAL", "LACS", "LUCIFERASE", "MACS", "NRPS", "SACS", "VLACSBILE")
 
 # Color AMP clustering diagram
-namvec <- names(clf)
 pal <- c("#E41A1C", "#92D050", "#377EB8", "#984EA3", "#FF7F00",   
           "goldenrod", "#A65628", "#F781BF", "blue1", 
           "gray68", "darkorchid1", "navy", "plum1",

@@ -42,8 +42,8 @@ for(i in 1:10) {
 
   # Train a neural network
   fitControl <- trainControl(method = "none", classProbs = FALSE)
-  nnet_grid <- expand.grid(.decay = c(0.5),
-                           .size = c(10))
+  nnet_grid <- expand.grid(.decay = c(0.5), # optimally-tuned
+                           .size = c(10)) # optimally-tuned
   
   nnet_models[[i]] <- train(
     x = x_train,
