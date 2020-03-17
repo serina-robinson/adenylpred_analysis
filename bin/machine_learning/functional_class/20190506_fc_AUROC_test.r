@@ -1,17 +1,17 @@
 # Install packages
 pacman::p_load("caret", "Biostrings", "RColorBrewer", "phangorn", "ape", "seqinr", "DECIPHER", "cowplot", "tidymodels", "ranger", 
-               "tree", "rsample", "tidyverse", "randomForest","gbm","nnet","e1071","svmpath","lars","glmnet","svmpath", "ggpubr")
+               "tree", "rsample", "tidyverse", "randomForest","gbm","nnet","e1071","svmpath","lars","glmnet","svmpath")
 # ("multiROC")
 require("multiROC")
 
 # Set working directory
-setwd("~/Documents/Wageningen_UR/github/adenylpred_analysis/")
+setwd("~/Documents/Wageningen_UR/github/adenylpred_analysis/j")
 
 # Read in the data
-rawdat <- read_csv("data/1553_training_sqs_with_loop_extracted.csv")
+rawdat <- read_csv("data/703_training_sqs_with_loop_extracted.csv")
 table(duplicated(rawdat[,2:ncol(rawdat)])) # check no duplicates
 colnames(rawdat)[1] <- "nms"
-rawdat$clf <- word(rawdat$nms, -1, sep = "_")
+rawdat$clf <- word(rawdat$nms, 2, sep = "_")
 table(rawdat$clf)
 
 # Remove the holdout test predictions
@@ -61,7 +61,6 @@ for(i in 1:10) {
 ind <- 10
 rf_df <- rf_pred[[ind]]$predictions
 colnames(rf_df) <- paste0(colnames(rf_df), "_pred_RF")
-head(rf_df)
 
 true_label <- dummies::dummy(dat_test$clf, sep = ".")
 true_label <- data.frame(true_label)
@@ -71,7 +70,8 @@ head(true_label)
 true_label <- data.frame(true_label)
 
 final_df <- cbind(true_label, rf_df)
-head(final_df)
+write_csv(final_df, "output/FC_AUROC_correct.csv")
+
 colnames(final_df) <- gsub("clf\\.", "", colnames(final_df))
 roc_res <- multi_roc(final_df, force_diag=T)
 
@@ -83,48 +83,53 @@ plot_pr_df <- plot_pr_data(pr_res)
 
 pal2 <- c("#E41A1C", "#92D050", "#377EB8", "#984EA3",
           "#FF7F00", "goldenrod", "#A65628",   "#F781BF",
-          "blue1", "darkorchid1",  
+          "blue1", "gray68", "darkorchid1", "navy", 
           "plum1","deepskyblue", "gold", 
-          "deeppink2", , "darkseagreen1","gray68", "black",
-          "lightblue2", "lightslateblue")
+          "deeppink2", "lightslateblue",
+          "lightblue2", "darkseagreen1")
 
-# Make AUROC plot (Figure 1C)
-pdf("output/fig1c.pdf", width = 4, height = 4)
-  ggplot(plot_roc_df, aes(x = 1-Specificity, y=Sensitivity)) +
-    geom_path(aes(color = Group), size = 1) +
-    geom_segment(aes(x = 0, y = 0, xend = 1, yend = 1), 
-                 colour='grey', linetype = 'dotdash') +
-    theme_pubr() + 
-    scale_color_manual(values = pal2) +
-    theme(plot.title = element_text(hjust = 0.5), 
-          legend.position = "none",
-          legend.title = NULL)
+plot_pr_df <- plot_pr_data(pr_res)
+pal2 <- c("#E41A1C", "#92D050", "#377EB8", "#984EA3",
+          "#FF7F00", "goldenrod", "#A65628",   "#F781BF",
+          "blue1", "gray68", "darkorchid1", "navy", 
+          "plum1","deepskyblue", "gold", 
+          "deeppink2", "lightslateblue",
+          "lightblue2", "darkseagreen1")
+
+ggplot(plot_roc_df, aes(x = 1-Specificity, y=Sensitivity)) +
+  geom_path(aes(color = Group), size = 1) +
+  geom_segment(aes(x = 0, y = 0, xend = 1, yend = 1), 
+               colour='grey', linetype = 'dotdash') +
+  theme_bw() + 
+  scale_color_manual(values = pal2) +
+  theme(plot.title = element_text(hjust = 0.5), 
+        legend.justification=c(1, 0), legend.position=c(.95, .05),
+        legend.title = NULL)
+
+pdf("output/figS2b.pdf", width = 4, height = 4)
+ggplot(plot_roc_df, aes(x = 1-Specificity, y=Sensitivity)) +
+  geom_path(aes(color = Group), size = 1) +
+  geom_segment(aes(x = 0, y = 0, xend = 1, yend = 1), 
+               colour='grey', linetype = 'dotdash') +
+  theme_bw() + 
+  scale_color_manual(values = pal2) +
+  theme(plot.title = element_text(hjust = 0.5), 
+        legend.justification=c(1, 0), legend.position=c(.95, .05),
+        legend.title = NULL)
 dev.off()
 
-pdf("output/fig1c_with_legend.pdf", width = 6, height = 6)
-  ggplot(plot_roc_df, aes(x = 1-Specificity, y=Sensitivity)) +
-    geom_path(aes(color = Group), size = 1) +
-    geom_segment(aes(x = 0, y = 0, xend = 1, yend = 1), 
-                 colour='grey', linetype = 'dotdash') +
-    theme_bw() + 
-    scale_color_manual(values = pal2) +
-    theme_pubr() +
-    theme(plot.title = element_text(hjust = 0.5), 
-          legend.justification=c(1, 0), legend.position=c(.95, .05))
-dev.off()
 
-
-# Calculate confidence intervals
-cbind(1:length(unlist(roc_res$AUC)), unlist(roc_res$AUC))
-roc_ci_res_micro <- roc_ci(final_df, conf= 0.95, type='basic', R = 1000, index = 17)
-roc_ci_res_micro
-roc_ci_res_micro$t0
-roc_ci_res_macro <- roc_ci(final_df, conf= 0.95, type='basic', R = 1000, index = 16)
-roc_ci_res_macro
-
+roc_ci_res_micro <- roc_ci(final_df, conf= 0.95, type='basic', R = 100, index = 17)
+roc_ci_res_macro <- roc_ci(final_df, conf= 0.95, type='basic', R = 100, index = 1)
 roc_auc_with_ci_res <- roc_auc_with_ci(final_df, conf= 0.95, type='basic', R = 100)
 roc_auc_with_ci_res
 
-
-
+ggplot(plot_pr_df, aes(x=Recall, y=Precision)) + 
+  geom_path(aes(color = Group, linetype=Method), size=1.5) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5), 
+        legend.justification=c(1, 0), legend.position=c(.95, .05),
+        legend.title=element_blank(), 
+        legend.background = element_rect(fill=NULL, size=0.5, 
+                                         linetype="solid", colour ="black"))
 
