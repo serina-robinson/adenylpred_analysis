@@ -64,7 +64,6 @@ final_df <- data.frame(cbind(true_label, rf_df), stringsAsFactors = F)
 colnames(final_df) <- gsub("clf\\.", "", colnames(final_df))
 
 roc_res <- multi_roc(final_df, force_diag=T)
-warnings()
 pr_res <- multi_pr(final_df, force_diag=T)
 plot_roc_df <- plot_roc_data(roc_res)
 plot_pr_df <- plot_pr_data(pr_res)
@@ -90,12 +89,11 @@ ggplot(plot_roc_df, aes(x = 1-Specificity, y=Sensitivity)) +
 dev.off()
 
 # Calculate confidence intervals
-roc_ci_res_micro <- roc_ci(final_df, conf= 0.95, type='basic', R = 100, index = 17)
-roc_ci_res_micro
+roc_ci_res_micro <- roc_ci(final_df, conf= 0.95, type='basic', R = 1000, index = 17)
 roc_ci_res_micro$t0
-roc_ci_res_macro <- roc_ci(final_df, conf= 0.95, type='basic', R = 100, index = 1)
-roc_ci_res_macro
-roc_auc_with_ci_res <- roc_auc_with_ci(final_df, conf= 0.95, type='basic', R = 100)
+roc_ci_res_micro
 
+roc_ci_res_macro <- roc_ci(final_df, conf= 0.95, type='basic', R = 1000, index = 16)
+roc_ci_res_macro$t0
 
 

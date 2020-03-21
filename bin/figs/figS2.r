@@ -1,6 +1,6 @@
 # Install pacakges
 pacman::p_load("caret", "data.table", "RColorBrewer", "Biostrings", 
-               "multiROC", "tidymodels", "ggpubr",
+               "multiROC", "tidymodels", "ggpubr", 
                "ranger", "tree", "rsample", "tidyverse")
 
 # Set working directory
@@ -14,7 +14,6 @@ rawdat <- read_csv("data/703_training_sqs_with_loop_extracted.csv")
 table(duplicated(rawdat[,2:ncol(rawdat)])) # check no duplicates
 colnames(rawdat)[1] <- "nms"
 rawdat$clf <- word(rawdat$nms, 2, sep = "_")
-table(rawdat$clf)
 
 # Remove the holdout test predictions
 dat <- rawdat[!grepl(paste0(c("HOLDOUT", "OTHER", "CAR", "amino.acid", "reject"), collapse = "|"), rawdat$clf),] # 658 observations
@@ -38,7 +37,6 @@ form_train <- data.frame(cbind(x_train, y_train), stringsAsFactors = F, row.name
 form_test <- data.frame(cbind(x_test, y_test), stringsAsFactors = F, row.names = dat_test$nms)
 
 classwts <- nrow(dat)/(length(unique(dat$clf)) * table(dat$clf))
-classwts
 dtf <- data.frame(cbind(table(dat$clf), classwts))
 colnames(dtf) <- c("class_size", "class_weights")
 
@@ -47,17 +45,17 @@ rf <- ranger(y_train ~., data = form_train, num.trees = 1000, splitrule = "gini"
                            mtry = as.integer(sqrt(ncol(x_train))), min.node.size = 1,
                            class.weights = classwts, importance = "permutation", probability = T)
 
+rf_pred1 <- predict(rf, data = form_test)
 
 # Train model for confusion matrix
 rf2 <- ranger(y_train ~., data = form_train, num.trees = 1000, splitrule = "gini",
              mtry = as.integer(sqrt(ncol(x_train))), min.node.size = 1,
              class.weights = classwts, importance = "permutation")
 
-rf_pred <- predict(rf2, data = form_test)
-rf_pred$predictions
+rf_pred2 <- predict(rf2, data = form_test)
 
-rf_cm <- confusionMatrix(rf_pred$predictions, as.factor(dat_test$clf))
-
+# Make a confusion matrix
+rf_cm <- confusionMatrix(rf_pred2$predictions, as.factor(dat_test$clf))
 dtf <- data.frame(rf_cm$table, stringsAsFactors = F)
 
 dtf$Prediction <- as.character(dtf$Prediction)
@@ -82,19 +80,20 @@ ggplot(dtf, aes(Prediction, Reference)) +
         legend.position = "none") 
 dev.off()
 
-rf_pred <- data.frame(rf_pred$predictions)
+rf_pred <- data.frame(rf_pred1$predictions)
+rf_pred
 colnames(rf_pred) <- paste(colnames(rf_pred), "_pred_RF")
-head(rf_pred)
+colnames(rf_pred)
 true_label <- dummies::dummy(dat_test$clf, sep = ".")
 true_label <- data.frame(true_label)
 colnames(true_label) <- gsub(".*?\\.", "", colnames(true_label))
 colnames(true_label) <- paste(colnames(true_label), "_true")
-head(true_label)
 true_label <- data.frame(true_label)
 
 final_df <- cbind(true_label, rf_pred)
-head(final_df)
+final_df
 colnames(final_df) <- gsub("\\.", " ", colnames(final_df))
+colnames(final_df)
 
 roc_res <- multi_roc(final_df, force_diag = T)
 pr_res <- multi_pr(final_df, force_diag = T)
@@ -106,7 +105,7 @@ pal2 <- c("#E41A1C", "#92D050", "#377EB8", "#984EA3",
                   "plum1","deepskyblue", "gold", 
                   "deeppink2", "lightslateblue",
                   "lightblue2", "darkseagreen1", "darkorchid1")
-pal2
+
 
 pdf("output/figS2b.pdf", width = 4, height = 4)
 ggplot(plot_roc_df, aes(x = 1-Specificity, y=Sensitivity)) +
